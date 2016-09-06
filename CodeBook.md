@@ -1,36 +1,143 @@
-## How to get some profit from this =)
-1. You have to download sourse data from link below and unzip it to working directory of R Studio.
-2. You have to perform R script.
+## About the Data
 
-## About source data
-As sourse data for work was used Human Activity Recognition Using Smartphones Data Set. A full description is available at the site where the data was obtained:
-http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
-Here are the data for the project: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
+Represent data collected from the accelerometers from the Samsung Galaxy S smartphone. 
 
-## About R script
-File with R code "run_analysis.R" perform 5 following steps (in accordance assigned task of course work):   
-1. Merging the training and the test sets to create one data set.   
-  1.1 Reading files    
-    1.1.1 Reading trainings tables   
-    1.1.2 Reading testing tables   
-    1.1.3 Reading feature vector   
-    1.1.4 Reading activity labels   
-  1.2 Assigning column names   
-  1.3 Merging all data in one set   
-2. Extracting only the measurements on the mean and standard deviation for each measurement   
-  2.1 Reading column names  
-  2.2 Create vector for defining ID, mean and standard deviation   
-  2.3 Making nessesary subset from setAllInOne   
-3. Using descriptive activity names to name the activities in the data set   
-4. Appropriately labeling the data set with descriptive variable names   
-5. Creating a second, independent tidy data set with the average of each variable for each activity and each subject   
-  5.1 Making second tidy data set   
-  5.2 Writing second tidy data set in txt file   
+The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
 
-PS..The code takes for granted all the data is present in the same folder, un-compressed and without names altered.
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 
-## About variables:   
-* `x_train`, `y_train`, `x_test`, `y_test`, `subject_train` and `subject_test` contain the data from the downloaded files.
-* `x_data`, `y_data` and `subject_data` merge the previous datasets to further analysis.
-* `features` contains the correct names for the `x_data` dataset, which are applied to the column names stored in
+(for more information http://www.smartlab.ws)
+
+
+For this project, from the data was create a independent tidy data set with the average of each variable for each activity and each subject.
+
+
+## Variables
+
+* "subjectId"
+
+* "activityId" 
+
+* "tBodyAcc-mean()-X" 
+* "tBodyAcc-mean()-Y" 
+* "tBodyAcc-mean()-Z" 
+
+* "tBodyAcc-std()-X" 
+* "tBodyAcc-std()-Y" 
+* "tBodyAcc-std()-Z" 
+
+* "tGravityAcc-mean()-X" 
+* "tGravityAcc-mean()-Y" 
+* "tGravityAcc-mean()-Z" 
+
+* "tGravityAcc-std()-X" 
+* "tGravityAcc-std()-Y" 
+* "tGravityAcc-std()-Z" 
+
+* "tBodyAccJerk-mean()-X" 
+* "tBodyAccJerk-mean()-Y" 
+* "tBodyAccJerk-mean()-Z" 
+
+* "tBodyAccJerk-std()-X" 
+* "tBodyAccJerk-std()-Y" 
+* "tBodyAccJerk-std()-Z" 
+
+* "tBodyGyro-mean()-X" 
+* "tBodyGyro-mean()-Y" 
+* "tBodyGyro-mean()-Z" 
+
+* "tBodyGyro-std()-X" 
+* "tBodyGyro-std()-Y" 
+* "tBodyGyro-std()-Z" 
+
+* "tBodyGyroJerk-mean()-X" 
+* "tBodyGyroJerk-mean()-Y" 
+* "tBodyGyroJerk-mean()-Z" 
+
+* "tBodyGyroJerk-std()-X" 
+* "tBodyGyroJerk-std()-Y" 
+* "tBodyGyroJerk-std()-Z" 
+
+* "tBodyAccMag-mean()" 
+* "tBodyAccMag-std()" 
+
+* "tGravityAccMag-mean()" 
+* "tGravityAccMag-std()" 
+
+* "tBodyAccJerkMag-mean()" 
+* "tBodyAccJerkMag-std()" 
+
+* "tBodyGyroMag-mean()" 
+* "tBodyGyroMag-std()" 
+
+* "tBodyGyroJerkMag-mean()" 
+* "tBodyGyroJerkMag-std()" 
+
+* "fBodyAcc-mean()-X" 
+* "fBodyAcc-mean()-Y" 
+* "fBodyAcc-mean()-Z" 
+
+* "fBodyAcc-std()-X" 
+* "fBodyAcc-std()-Y" 
+* "fBodyAcc-std()-Z" 
+
+* "fBodyAcc-meanFreq()-X" 
+* "fBodyAcc-meanFreq()-Y" 
+* "fBodyAcc-meanFreq()-Z" 
+
+* "fBodyAccJerk-mean()-X" 
+* "fBodyAccJerk-mean()-Y" 
+* "fBodyAccJerk-mean()-Z" 
+
+* "fBodyAccJerk-std()-X" 
+* "fBodyAccJerk-std()-Y" 
+* "fBodyAccJerk-std()-Z" 
+
+* "fBodyAccJerk-meanFreq()-X" 
+* "fBodyAccJerk-meanFreq()-Y" 
+* "fBodyAccJerk-meanFreq()-Z" 
+
+* "fBodyGyro-mean()-X" 
+* "fBodyGyro-mean()-Y" 
+* "fBodyGyro-mean()-Z" 
+
+* "fBodyGyro-std()-X" 
+* "fBodyGyro-std()-Y" 
+* "fBodyGyro-std()-Z" 
+
+* "fBodyGyro-meanFreq()-X" 
+* "fBodyGyro-meanFreq()-Y" 
+* "fBodyGyro-meanFreq()-Z" 
+
+* "fBodyAccMag-mean()" 
+* "fBodyAccMag-std()" 
+* "fBodyAccMag-meanFreq()" 
+
+* "fBodyBodyAccJerkMag-mean()" 
+* "fBodyBodyAccJerkMag-std()" 
+* "fBodyBodyAccJerkMag-meanFreq()" 
+
+* "fBodyBodyGyroMag-mean()" 
+* "fBodyBodyGyroMag-std()" 
+* "fBodyBodyGyroMag-meanFreq()" 
+
+* "fBodyBodyGyroJerkMag-mean()" 
+* "fBodyBodyGyroJerkMag-std()" 
+* "fBodyBodyGyroJerkMag-meanFreq()" 
+
+* "activityType"
+
+## Other information
+
+* mean(): Mean value
+* std(): Standard deviation
+		
+* prefix 't' to denote time
+* prefix 'f' to indicate frequency domain signals
+
+
+
+
+
+
  
