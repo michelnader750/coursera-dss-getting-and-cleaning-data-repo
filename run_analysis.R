@@ -1,6 +1,7 @@
 #==========================================================================================================
 # To build this application, I had to have as a guide the article "Getting and cleaning data - Course work" 
 # published in: https://rpubs.com/Zanin_Pavel/158283.  I sincerily thank you Mr Zanin Pavel for the help!
+# I would say that I learned a lot from this guide! 
 #                                                                                              Michel Nader
 #==========================================================================================================
 
